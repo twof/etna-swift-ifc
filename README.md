@@ -99,16 +99,16 @@ port; the reference's strategies are QuickChick's two generators.
 
 | Strategy | Solved | Executions-to-find (median / max) | Time-to-find (median / max) |
 |---|---:|---|---|
-| swift / ptk | **20/20** | 86 / **7223** | 11.7ms / 88.8ms |
-| quickchick / bespoke (`gen_variation_state`) | 20/20 | 68 / 248 | 7.4ms / 10.0ms |
-| quickchick / derived (`gen_variation_state_derived`) | 20/20 | 90 / 674 | 8.0ms / 17.3ms |
+| swift / ptk | **20/20** | 86 / **6915** | 11.9ms / 85.2ms |
+| quickchick / bespoke (`gen_variation_state`) | 20/20 | 55 / 558 | 7.8ms / 13.2ms |
+| quickchick / derived (`gen_variation_state_derived`) | 20/20 | 138 / 354 | 8.3ms / 11.8ms |
 
 **All three strategies solve all 20 mutants**, and on the *median* mutant they
-are in the same ballpark (68–90 executions). The honest finding here is a
+are in the same ballpark (55–138 executions). The honest finding here is a
 **negative result for coverage guidance**:
 
-- **PTK has a much worse tail.** Its hardest mutants need up to ~7,200
-  executions; QuickChick never exceeds ~250 (bespoke) / ~675 (derived). PTK puts
+- **PTK has a much worse tail.** Its hardest mutants need up to ~6,900
+  executions; QuickChick never exceeds ~560 (bespoke) / ~355 (derived). PTK puts
   6 of 20 mutants in the 1k–10k bucket; QuickChick puts none above 100–1k.
 - **PTK is the slowest on wall-clock**, as on the other workloads — coverage
   instrumentation plus the corpus-mutation machinery is overhead here.
